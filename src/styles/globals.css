@@ -12,6 +12,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  line-height: 1.5;
+  background-color: #1a1b1e;
+  color: #ddd;
 }
 
 html,

@@ -1,3 +1,11 @@
 .image:hover {
   cursor: pointer;
 }
+
+.pageSection {
+  cursor: pointer;
+}
+
+.icon {
+  margin: auto 1.5rem;
+}

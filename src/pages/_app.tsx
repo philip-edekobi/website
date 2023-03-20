@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import { ChakraProvider } from "@chakra-ui/react";
 import { Roboto } from "@next/font/google";
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -28,16 +28,9 @@ export default function App(props: AppProps) {
         `}</style>
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: "dark",
-        }}
-      >
+      <ChakraProvider>
         <Component {...pageProps} />
-      </MantineProvider>
+      </ChakraProvider>
     </>
   );
 }
