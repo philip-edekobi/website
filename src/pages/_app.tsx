@@ -1,9 +1,20 @@
 import "@/styles/globals.css";
+import "@/styles/nprogress.css";
+
 import { AppProps } from "next/app";
 import Head from "next/head";
+import Router from "next/router";
+
+import nProgress from "nprogress";
+
 import { ChakraProvider } from "@chakra-ui/react";
+
 import { Roboto } from "@next/font/google";
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
+
+Router.events.on("routeChangeStart", nProgress.start);
+Router.events.on("routeChangeError", nProgress.done);
+Router.events.on("routeChangeComplete", nProgress.done);
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
