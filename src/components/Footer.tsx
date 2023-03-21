@@ -2,7 +2,6 @@ import { Flex, useMediaQuery, Text, Spacer } from "@chakra-ui/react";
 
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
-import { HiMenu } from "react-icons/hi";
 
 import classes from "@/styles/Footer.module.css";
 
@@ -10,10 +9,10 @@ export default function Footer() {
   const [isSmall] = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Flex flexDir="column" position="fixed" bottom={0} w="100%">
+    <Flex flexDir="column" w="100%">
       <Flex
         w="100%"
-        px={isSmall ? "1.5rem" : "8rem"}
+        px={isSmall ? "1.5rem" : "7rem"}
         flexDir={isSmall ? "column" : "row"}
         justify={isSmall ? "" : "space-between"}
       >
