@@ -42,7 +42,10 @@ export default function Navbar() {
   function changeSection(section: string) {
     if (section !== "Blog") {
       setCurrentSection(section);
-      document.getElementById(section)?.scrollIntoView();
+      document.getElementById(section)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
       return;
     }
 
@@ -50,7 +53,7 @@ export default function Navbar() {
   }
 
   return (
-    <Flex id="Home" h="4rem" w="100%" align="center">
+    <Flex id="Home" h="4rem" w="100%" align="center" position="sticky">
       <Spacer />
 
       <Image

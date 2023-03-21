@@ -1,0 +1,7 @@
+.icon {
+  margin: auto 1.5rem;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
