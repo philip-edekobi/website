@@ -1,10 +1,21 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
-import { Flex, Spacer, useMediaQuery } from "@chakra-ui/react";
+import {
+  Flex,
+  Spacer,
+  useMediaQuery,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from "@chakra-ui/react";
 import Image from "next/image";
 
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
+import { HiMenu } from "react-icons/hi";
 
 import logo from "../../public/logo.png";
 import classes from "@/styles/Nav.module.css";
@@ -22,8 +33,10 @@ export default function Navbar() {
   const [currentSection, setCurrentSection] = useState("Home");
   const [isSmall] = useMediaQuery("(max-width: 768px)");
 
+  const router = useRouter();
+
   function scrollToTop() {
-    document.getElementById("Home")?.scrollIntoView();
+    window.scrollTo(0, 0);
   }
 
   function changeSection(section: string) {
@@ -32,23 +45,14 @@ export default function Navbar() {
       document.getElementById(section)?.scrollIntoView();
       return;
     }
+
+    router.push("/blog");
   }
 
   return (
-    <Flex
-      id="Home"
-      h="4rem"
-      w="100%"
-      flexGrow="1"
-      align="center"
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        border: "none",
-      }}
-    >
+    <Flex id="Home" h="4rem" w="100%" align="center">
       <Spacer />
+
       <Image
         className={classes.image}
         color="yellow"
@@ -77,16 +81,54 @@ export default function Navbar() {
       <Spacer />
 
       <Flex>
-        <AiFillGithub size={25} className={classes.icon} />
-        <AiFillTwitterCircle size={25} className={classes.icon} />
-        <BsLinkedin size={23} className={classes.icon} />
+        <AiFillGithub
+          size={25}
+          className={classes.icon}
+          onClick={() => {
+            window.open("https://github.com/philip-edekobi", "_blank");
+          }}
+        />
+        <AiFillTwitterCircle
+          size={25}
+          className={classes.icon}
+          onClick={() => {
+            window.open("https://twitter.com/edekobi_philip", "_blank");
+          }}
+        />
+        <BsLinkedin
+          size={23}
+          className={classes.icon}
+          onClick={() => {
+            window.open("https://linkedin.com/in/philip-edekobi", "_blank");
+          }}
+        />
       </Flex>
 
       <Spacer />
 
       {isSmall && (
         <>
-          <Menu></Menu>
+          <Menu>
+            <MenuButton as={IconButton} variant="outline" icon={<HiMenu />} />
+            <MenuList bgColor="#1a1b1e">
+              {PAGE_SECTIONS.map(section => (
+                <MenuItem
+                  bgColor="#1a1b1e"
+                  color="#ddd"
+                  onClick={() => changeSection(section)}
+                  key={nanoid()}
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "#ddd",
+                      color: "#1a1b1e",
+                    },
+                  }}
+                >
+                  {section}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
           <Spacer />
         </>
       )}
@@ -106,6 +148,9 @@ function NavItem({ name, clickAction, currentSection }: NavItemProps) {
         color: currentSection === name ? "#EF0" : "",
         borderBottom: currentSection === name ? "3px solid #EF0" : "inherit",
         padding: "3px 0",
+        "&:hover": {
+          color: "#DE0",
+        },
       }}
       className={classes.pageSection}
     >
