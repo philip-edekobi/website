@@ -36,7 +36,10 @@ export default function Navbar() {
   const router = useRouter();
 
   function scrollToTop() {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0
+    })
   }
 
   function changeSection(section: string) {
@@ -44,16 +47,16 @@ export default function Navbar() {
       setCurrentSection(section);
       document.getElementById(section)?.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        inline: "start"
       });
       return;
     }
 
-    router.push("/blog");
+    router.push(process.env.blogUrl ?? "https://blog.luxurydev.xyz");
   }
 
   return (
-    <Flex id="Home" h="4rem" w="100%" align="center" position="sticky">
+    <Flex id="Home" h="4rem" w="100%" align="center" position="sticky" top="0">
       <Spacer />
 
       <Image
