@@ -9,7 +9,9 @@ export default function Footer() {
   const [isSmall] = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Flex flexDir="column" w="100%">
+    <Flex flexDir="column" w="100%" style={{
+      backgroundColor: "#1a1b1e",
+    }}>
       <Flex
         w="100%"
         px={isSmall ? "1.5rem" : "7rem"}
