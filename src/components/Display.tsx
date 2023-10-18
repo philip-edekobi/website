@@ -1,13 +1,13 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { IconContext } from "react-icons";
-import { Skill } from "./types";
+import { DisplayCard as Skill } from "./types";
 
-export const SkillDisplay: React.ComponentType<{ skill: Skill }> = ({ skill }) => {
+export const Display: React.ComponentType<{ params: Skill }> = ({ params: skill }) => {
     return (
         <Flex
-            flexDir="column" mx="2rem" bgColor="#E1b20f"
-            borderRadius="2xl" h="15rem" w="30%" align="center"
+            flexDir="column" mx="2rem" bgColor="#E1b20f" my="1.2rem"
+            borderRadius="2xl" h="15rem" minW="30%" maxW="30%" align="center"
             py="1rem" px="1.7rem"
         >
             <Flex>

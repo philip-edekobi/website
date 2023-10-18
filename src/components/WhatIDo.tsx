@@ -1,6 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { Skill } from "./types";
-import { SkillDisplay } from "./Skill";
+import { DisplayCard as Skill } from "./types";
+import { Display as SkillDisplay } from "./Display";
 
 import { AiOutlineSetting, AiFillCompass } from "react-icons/ai";
 import { nanoid } from "nanoid";
@@ -15,7 +15,7 @@ export default function WhatIDo() {
             </Flex>
 
             <Flex justify="center">
-                {skills.map(skill => <SkillDisplay key={nanoid()} skill={skill} />)}
+                {skills.map(skill => <SkillDisplay key={nanoid()} params={skill} />)}
             </Flex>
         </Flex>
     );

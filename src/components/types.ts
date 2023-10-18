@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-export type Skill = {
+export type DisplayCard = {
     icon?: ReactElement;
     name: string;
     desc: string;
