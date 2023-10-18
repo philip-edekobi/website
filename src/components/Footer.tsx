@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <Flex flexDir="column" w="100%" style={{
-      backgroundColor: "#1a1b1e",
+      backgroundColor: "#171717",
     }}>
       <Flex
         w="100%"

@@ -57,7 +57,7 @@ export default function Navbar() {
 
   return (
     <Flex id="Home" h="4rem" w="100%" align="center" position="sticky" top="0" style={{
-      backgroundColor: "#1a1b1e",
+      backgroundColor: "#171717",
     }}>
       <Spacer />
 
